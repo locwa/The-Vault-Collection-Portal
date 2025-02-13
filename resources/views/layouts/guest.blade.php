@@ -20,9 +20,7 @@
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
             <div class="text-center">
-                <a href="/">
-                    <x-logos.crest class="w-32 h-32"></x-logos.crest>
-                </a>
+                <x-logos.crest class="w-32 h-32"></x-logos.crest>
                 @isset($title)
                     <h4 class="text-xl font-semibold pt-6 dark:text-gray-100">{{ $title }}</h4>
                 @endisset
