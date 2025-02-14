@@ -16,7 +16,7 @@
             </div>
         </div>
 
-        <div class="w-full h-[100vh] mt-12 flex gap-10">
+        <div class="w-full min-h-[100vh] my-12 flex gap-10">
             <div class="h-[90vh] w-96 bg-gray-300 dark:bg-[#1f1f1f] rounded"></div>
             <div class="flex flex-wrap gap-5">
                 @foreach($inventory as $inv)
