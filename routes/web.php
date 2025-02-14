@@ -12,9 +12,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/inventory', function () {
-    return view('inventory.inventory');
-})->middleware(['auth', 'verified'])->name('inventory');
+Route::get('/inventory', [InventoryController::class, 'view'])->middleware(['auth', 'verified'])->name('inventory');
 
 Route::post('/add-car', [InventoryController::class, 'store'])->middleware(['auth', 'verified'])->name('add-car');
 
