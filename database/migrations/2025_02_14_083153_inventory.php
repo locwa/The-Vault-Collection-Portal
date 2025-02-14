@@ -14,17 +14,18 @@ return new class extends Migration
         //
         Schema::create('inventory', function (Blueprint $table) {
             $table->id();
-            $table->string('make');
-            $table->string('model');
-            $table->string('year');
-            $table->string('photo_header');
-            $table->integer('price');
-            $table->integer('mileage');
-            $table->integer('description');
+            $table->string('make')->nullable();
+            $table->string('model')->nullable();
+            $table->string('year')->nullable();
+            $table->string('photo_header')->nullable();
+            $table->integer('price')->nullable();
+            $table->integer('mileage')->nullable();
+            $table->longText('description')->nullable();
             // 0 for available, 1 for sold
             $table->boolean('status')->default(false);
             $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('sold_at');
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('sold_at')->nullable();
         });
 
     }
