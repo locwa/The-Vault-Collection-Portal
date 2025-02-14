@@ -16,17 +16,38 @@
             </div>
         </div>
 
-        <div class="w-full h-[100vh] mt-12 flex justify-between gap-10">
+        <div class="w-full h-[100vh] mt-12 flex gap-10">
             <div class="h-[90vh] w-96 bg-gray-300 dark:bg-[#1f1f1f] rounded"></div>
             <div class="flex flex-wrap gap-5">
-                <div class="h-80 w-72 dark:bg-[#1f1f1f] rounded"></div>
-                <div class="h-80 w-72 dark:bg-[#1f1f1f] rounded"></div>
-                <div class="h-80 w-72 dark:bg-[#1f1f1f] rounded"></div>
-                <div class="h-80 w-72 dark:bg-[#1f1f1f] rounded"></div>
-                <div class="h-80 w-72 dark:bg-[#1f1f1f] rounded"></div>
+                @foreach($inventory as $inv)
+                    <div class="h-96 w-72  bg-gray-300 dark:bg-[#1f1f1f] rounded dark:text-gray-100 rounded p-3">
+                        <div class="flex justify-between">
+                            <div>
+                                <h4 class="text-md font-light leading-[1rem]">{{ $inv->year }}</h4>
+                                <h2 class="text-2xl font-semibold leading-[2rem]">{{ $inv->make }}</h2>
+                                <h4 class="text-lg font-light leading-[1rem]">{{ $inv->model }}</h4>
+                            </div>
+                            <div>
+                                <p class="text-sm">ID: {{ $inv->id }}</p>
+                            </div>
+                        </div>
+
+                        <div class="py-5">
+                            <p class="font-light">List Price:</p>
+                            <h3 class="text-2xl font-semibold">{{ numfmt_format_currency(numfmt_create('en_US', NumberFormatter::CURRENCY), $inv->price, "USD") }}</h3>
+                        </div>
+
+                        <hr class="border-black dark:border-gray-100">
+
+                        <div class="flex my-3 gap-x-3">
+                            <x-primary-button>View Car</x-primary-button>
+                            <x-secondary-button>Sell Car</x-secondary-button>
+                        </div>
+
+                    </div>
+                @endforeach
             </div>
         </div>
-
     </div>
 
 </x-app-layout>
