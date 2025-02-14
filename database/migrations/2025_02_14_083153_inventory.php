@@ -26,6 +26,7 @@ return new class extends Migration
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('sold_at')->nullable();
+            $table->boolean('is_poa')->default(false);
         });
 
     }
