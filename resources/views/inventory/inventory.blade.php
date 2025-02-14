@@ -21,14 +21,15 @@
             <div class="flex flex-wrap gap-5">
                 @foreach($inventory as $inv)
                     <div class="h-96 w-72  bg-gray-300 dark:bg-[#1f1f1f] rounded dark:text-gray-100 rounded p-3">
-                        <div class="flex justify-between">
+                        <div class="flex justify-between items-center">
                             <div>
                                 <h4 class="text-md font-light leading-[1rem]">{{ $inv->year }}</h4>
                                 <h2 class="text-2xl font-semibold leading-[2rem]">{{ $inv->make }}</h2>
                                 <h4 class="text-lg font-light leading-[1rem]">{{ $inv->model }}</h4>
                             </div>
-                            <div>
+                            <div class="text-right">
                                 <p class="text-sm">ID: {{ $inv->id }}</p>
+                                <p class="text-sm">Status: {{ $inv->status }}</p>
                             </div>
                         </div>
 
