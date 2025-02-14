@@ -12,9 +12,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/inventory', [InventoryController::class, 'view'])->middleware(['auth', 'verified'])->name('inventory');
+Route::get('/inventory', [InventoryController::class, 'viewAll'])->middleware(['auth', 'verified'])->name('inventory');
 
 Route::post('/add-car', [InventoryController::class, 'store'])->middleware(['auth', 'verified'])->name('add-car');
+
+Route::get('/view-car/{id}', [InventoryController::class, 'viewCar'])->middleware(['auth', 'verified'])->name('view-car');
 
 Route::get('/add-car', function () {
     return view('inventory.add-car');
