@@ -20,8 +20,8 @@
             <div class="h-[90vh] w-96 bg-gray-300 dark:bg-[#1f1f1f] rounded"></div>
             <div class="flex flex-wrap gap-5">
                 @foreach($inventory as $inv)
-                    <div class="h-96 w-72  bg-gray-300 dark:bg-[#1f1f1f] rounded dark:text-gray-100 rounded p-3">
-                        <div class="flex justify-between items-center">
+                    <div class="h-[49vh] w-72  bg-gray-300 dark:bg-[#1f1f1f] rounded dark:text-gray-100 rounded p-3">
+                        <div class="flex justify-between items-center gap-5">
                             <div>
                                 <h4 class="text-md font-light leading-[1rem]">{{ $inv->year }}</h4>
                                 <h2 class="text-2xl font-semibold leading-[2rem]">{{ $inv->make }}</h2>
