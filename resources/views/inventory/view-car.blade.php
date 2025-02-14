@@ -24,7 +24,7 @@
                         <div class="text-right">
                             <h4 class="text-lg"><strong>ID:</strong> {{ $carDetails->value('id') }}</h4>
                             <h4 class="text-lg"><strong>Status:</strong> {{ $carDetails->value('status') ? "Sold" : "Available" }}</h4>
-                            <h4 class="text-lg"><strong>Rent Price:</strong> {{ numfmt_format_currency(numfmt_create('en_US', NumberFormatter::CURRENCY), $carDetails->value('price'),"USD") }}</h4>
+                            <h4 class="text-lg"><strong>Price:</strong> {{ numfmt_format_currency(numfmt_create('en_US', NumberFormatter::CURRENCY), $carDetails->value('price'),"USD") }}</h4>
                         </div>
                     </div>
                 </div>
