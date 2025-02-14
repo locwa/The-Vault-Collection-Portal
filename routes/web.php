@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InventoryController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -14,6 +15,8 @@ Route::get('/dashboard', function () {
 Route::get('/inventory', function () {
     return view('inventory.inventory');
 })->middleware(['auth', 'verified'])->name('inventory');
+
+Route::post('/add-car', [InventoryController::class, 'store'])->middleware(['auth', 'verified'])->name('add-car');
 
 Route::get('/add-car', function () {
     return view('inventory.add-car');

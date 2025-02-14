@@ -13,7 +13,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <form method="post" action="./add_car" class="bg-white dark:bg-[#1f1f1f] overflow-hidden shadow-sm sm:rounded-lg" enctype="multipart/form-data">
+            <form method="post" action="{{ route('add-car') }}" class="bg-white dark:bg-[#1f1f1f] overflow-hidden shadow-sm sm:rounded-lg" enctype="multipart/form-data">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     @csrf
 
@@ -33,8 +33,13 @@
                     </div>
 
                     <div class="mb-6">
-                        <x-input-label>Rent Price</x-input-label>
-                        <x-text-input name='rent_price' class="mt-1 block w-full">e.g, 2500</x-text-input>
+                        <x-input-label>Price</x-input-label>
+                        <x-text-input name='price' class="mt-1 block w-full">e.g, 2500</x-text-input>
+                    </div>
+
+                    <div class="mb-6">
+                        <x-input-label>Mileage</x-input-label>
+                        <x-text-input name='mileage' class="mt-1 block w-full">e.g, 2500</x-text-input>
                     </div>
 
                     <div class="mb-6">
