@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('mileage');
             $table->integer('description');
             // 0 for available, 1 for sold
-            $table->boolean('status');
+            $table->boolean('status')->default(false);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('sold_at');
         });
