@@ -29,7 +29,7 @@
                             </div>
                             <div class="text-right">
                                 <p class="text-sm">ID: {{ $inv->id }}</p>
-                                <p class="text-sm">Status: {{ $inv->status }}</p>
+                                <p class="text-sm">Status: {{ $inv->status ? "Sold" : "Available" }}</p>
                             </div>
                         </div>
 
@@ -41,7 +41,9 @@
                         <hr class="border-black dark:border-gray-100">
 
                         <div class="flex my-3 gap-x-3">
-                            <x-primary-button>View Car</x-primary-button>
+                            <a href="{{ route('view-car', $inv->id) }}">
+                                <x-primary-button>View Car</x-primary-button>
+                            </a>
                             <x-secondary-button>Sell Car</x-secondary-button>
                         </div>
 
