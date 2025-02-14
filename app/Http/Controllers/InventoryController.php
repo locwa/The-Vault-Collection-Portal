@@ -36,4 +36,11 @@ class InventoryController extends Controller
         return redirect(route('inventory'));
 
     }
+
+    public function view(Request $request){
+
+        $inventory = Inventory::all();
+
+        return view('inventory.inventory', ['inventory' => $inventory]);
+    }
 }
