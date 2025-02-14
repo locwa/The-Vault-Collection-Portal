@@ -37,10 +37,15 @@ class InventoryController extends Controller
 
     }
 
-    public function view(Request $request){
-
+    // View all cars in the database
+    public function viewAll(){
         $inventory = Inventory::all();
-
         return view('inventory.inventory', ['inventory' => $inventory]);
+    }
+
+    // View specific car
+    public function viewCar(int $id){
+        $carDetails = Inventory::where('id', $id)->first();
+        return view('inventory.view-car', ['carDetails' => $carDetails]);
     }
 }
