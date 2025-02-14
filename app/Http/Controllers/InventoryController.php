@@ -45,7 +45,7 @@ class InventoryController extends Controller
 
     // View specific car
     public function viewCar(int $id){
-        $carDetails = Inventory::where('id', $id)->first();
+        $carDetails = Inventory::where('id', $id)->get();
         return view('inventory.view-car', ['carDetails' => $carDetails]);
     }
 }
