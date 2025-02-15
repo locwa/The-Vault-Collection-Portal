@@ -18,9 +18,9 @@
 
         <div class="w-full min-h-[100vh] my-12 flex gap-10">
             <div class="h-[90vh] w-96 bg-gray-300 dark:bg-[#1f1f1f] rounded"></div>
-            <div class="flex flex-wrap gap-5">
+            <div class="grid grid-cols-3 gap-5">
                 @foreach($inventory as $inv)
-                    <div class="h-[49vh] w-[20vw]  bg-gray-300 dark:bg-[#1f1f1f] rounded dark:text-gray-100 rounded p-3">
+                    <div class="h-[49vh] w-[20vw] bg-gray-300 dark:bg-[#1f1f1f] rounded dark:text-gray-100 rounded p-3">
                         <div class="flex justify-between items-center gap-5">
                             <div>
                                 <h4 class="text-md font-light leading-[1rem]">{{ $inv->year }}</h4>
