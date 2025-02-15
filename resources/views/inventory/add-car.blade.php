@@ -47,6 +47,11 @@
                         <x-textarea></x-textarea>
                     </div>
 
+                    <div class="mb-6 flex gap-4">
+                        <x-input-label>Is it Price on Application</x-input-label>
+                        <input type="checkbox" name="isPoa">
+                    </div>
+
                     <!--
                     <div class="mb-6">
                         <x-image-input></x-image-input>

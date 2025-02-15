@@ -20,13 +20,20 @@ class InventoryController extends Controller
             'description' => 'required',
         ]);
 
+
+        $isPoa = "";
+
+        $request->exists('isPoa') ? $isPoa = 1 : $isPoa = 0;
+
+
         $newCar = Inventory::create([
            'make' => $request->make,
            'model' => $request->model,
             'year' => $request->year,
             'price' => $request->price,
             'mileage' => $request->mileage,
-            'description' => $request->description
+            'description' => $request->description,
+            'is_poa' => $isPoa,
         ]);
 
         Inventory::where('id' , $newCar->id)->update([

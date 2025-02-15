@@ -16,5 +16,6 @@ class Inventory extends Model
         'description',
         'status',
         'sold_at',
-        'photo_header'];
+        'photo_header',
+        'is_poa'];
 }
