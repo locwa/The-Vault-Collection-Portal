@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Inventory;
+use Illuminate\Support\Facades\Storage;
 
 class InventoryController extends Controller
 {
@@ -36,9 +37,19 @@ class InventoryController extends Controller
             'is_poa' => $isPoa,
         ]);
 
+        $files = $request->file('imageInput');
+        $id = $newCar->id;
+
         Inventory::where('id' , $newCar->id)->update([
             'photo_header' => $newCar->id . "-" . request('make') . "-" . request('year') . "-" . str_replace(' ', '-', request('model')) . "-",
+            'photo_count' => count($files),
         ]);
+
+        if (count($files) > 0){
+            for ($i = 0; $i < count($files); $i++) {
+                Storage::disk('public')->putFileAs('cars', $files[$i], $id . "-" . request('make') . "-" . request('year') . "-" . str_replace(' ', '-', request('model')) . "-" . $i . ".jpg", "public");
+            }
+        }
 
         return redirect(route('inventory'));
 

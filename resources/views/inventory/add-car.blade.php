@@ -52,12 +52,12 @@
                         <input type="checkbox" name="isPoa">
                     </div>
 
-                    <!--
                     <div class="mb-6">
+                        <p>Image Upload (Add all photos at once)</p>
                         <x-image-input></x-image-input>
                     </div>
-                    -->
-                    <x-primary-button>Add</x-primary-button>
+
+                    <x-primary-button>Add Car</x-primary-button>
 
                 </div>
             </form>

@@ -30,3 +30,4 @@
             preview.appendChild(img);
         }
     });
+</script>
