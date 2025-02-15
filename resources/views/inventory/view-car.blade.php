@@ -41,7 +41,7 @@
                 <hr>
 
                 <h1 class="m-6 font-bold text-gray-900 dark:text-gray-100 text-4xl">Description:</h1>
-                <div class="m-6 text-gray-900 dark:text-gray-100 whitespace-pre-wrap">{!! $carDetails->value('description') !!}</div>
+                <div class="m-6 text-gray-900 dark:text-gray-100 whitespace-pre-wrap">{{ $carDetails->value('description') }}</div>
             </div>
         </div>
     </div>
