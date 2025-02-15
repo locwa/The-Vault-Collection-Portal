@@ -4,9 +4,14 @@
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 {{ __('View Car') }}
             </h2>
-            <a href="{{ route('inventory') }}">
-                <x-primary-button>Back to Fleet</x-primary-button>
-            </a>
+            <div class="flex justify-end gap-x-5">
+                <a href="{{ route('inventory') }}">
+                    <x-primary-button>Edit Car</x-primary-button>
+                </a>
+                <a href="{{ route('inventory') }}">
+                    <x-secondary-button>Back to Fleet</x-secondary-button>
+                </a>
+            </div>
         </div>
     </x-slot>
 
