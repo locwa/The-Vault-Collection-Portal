@@ -27,6 +27,7 @@ return new class extends Migration
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('sold_at')->nullable();
             $table->boolean('is_poa')->default(false);
+            $table->integer('photo_count')->nullable();
         });
 
     }
