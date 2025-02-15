@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="mb-6">
-                        <x-input-label>Mileage</x-input-label>
+                        <x-input-label>Mileage (KM)</x-input-label>
                         <x-text-input name='mileage' class="mt-1 block w-full">e.g, 2500</x-text-input>
                     </div>
 
