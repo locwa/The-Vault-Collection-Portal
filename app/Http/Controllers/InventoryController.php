@@ -91,7 +91,8 @@ class InventoryController extends Controller
         request()->query('model') ? array_push($inventory, ['model', request()->query('model')]) : "";
         request()->query('year') ? array_push($inventory, ['year', request()->query('year')]) : "";
 
-//        dd($inventory);
+        $makes = Inventory::select('make')->distinct()->get();
+        $models = Inventory::select('model')->distinct()->get();
 
         if (count($inventory) == 0){
             $inventory = Inventory::paginate(12);
@@ -99,7 +100,8 @@ class InventoryController extends Controller
         } else {
             $inventory = Inventory::where($inventory)->paginate(12);
         }
-        return view('inventory.inventory', ['inventory' => $inventory]);
+
+        return view('inventory.inventory', ['inventory' => $inventory, 'makes' => $makes, 'models' => $models]);
     }
 
     // View specific car
