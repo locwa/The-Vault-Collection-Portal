@@ -6,18 +6,16 @@
     </x-slot>
 
     <div class="px-12 flex flex-col items-center mx-14 gap-10">
-        <div class="w-full pt-12">
-            <div class="bg-white dark:bg-[#1f1f1f] overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100 w-full text-right">
-                    <a href="{{ route('add-car') }}">
-                        <x-primary-button>Add Car</x-primary-button>
-                    </a>
-                </div>
-            </div>
-        </div>
 
         <div class="w-full min-h-[100vh] my-12 flex gap-10">
-            <div class="h-[90vh] w-96 bg-gray-300 dark:bg-[#1f1f1f] rounded"></div>
+            <div class="h-[90vh] w-96 bg-gray-300 dark:bg-[#1f1f1f] rounded p-5 flex flex-col items-center">
+                <div class="w-full">
+                    <a href="{{ route('add-car') }}" class="flex justify-center">
+                        <x-primary-button class="px-20 py-3">Add Car</x-primary-button>
+                    </a>
+                    <hr class="dark:border-gray-100 my-3">
+                </div>
+            </div>
             <div class="grid grid-cols-3 gap-5">
                 @foreach($inventory as $inv)
                     <div class="h-[55vh] w-[20vw] bg-gray-300 dark:bg-[#1f1f1f] rounded dark:text-gray-100 rounded p-3">
