@@ -85,10 +85,11 @@
                     @endforeach
                 </div>
                 @else
-                    <h1 class="text-xl dark:text-white text-center w-full">Nothing Here Buds</h1>
+                    <div class="flex flex-col w-full">
+                        <p class="text-xl dark:text-white text-center w-full">Sorry, It seems like {{ request()->query('year') . " " . request()->query('make') . " " . request()->query('model') . " does not exist in your database"  }}</p>
+                        <p class="text-md text-gray-500 text-center">Please try another combination</p>
+                    </div>
                 @endif
-
-
 
         </div>
         <div class="flex">
