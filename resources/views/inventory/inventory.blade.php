@@ -8,11 +8,19 @@
     <div class="px-12 flex flex-col items-center mx-14 gap-10">
 
         <div class="w-full min-h-[100vh] my-12 flex gap-10">
-            <div class="h-[90vh] w-96 bg-gray-300 dark:bg-[#1f1f1f] rounded p-5 flex flex-col items-center">
+            <div class="h-[90vh] w-96 bg-gray-300 dark:bg-[#1f1f1f] rounded flex flex-col items-center p-5">
                 <div class="w-full">
                     <a href="{{ route('add-car') }}" class="flex justify-center">
                         <x-primary-button class="px-20 py-3">Add Car</x-primary-button>
                     </a>
+                    <hr class="dark:border-gray-100 my-3">
+                    <form action="{{ route('inventory') }}" method="get" class="flex justify-between items-center">
+                        <div class="flex flex-col">
+                            <label for="id" class="text-[#0f0f0f] dark:text-gray-100 my-2 font-semibold">Car ID:</label>
+                            <input type="text" name="car-id" id="carID" class="w-24 rounded-[10px]">
+                        </div>
+                        <x-primary-button class="h-full">Search</x-primary-button>
+                    </form>
                     <hr class="dark:border-gray-100 my-3">
                 </div>
             </div>

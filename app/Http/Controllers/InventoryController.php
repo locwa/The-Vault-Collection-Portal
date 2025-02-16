@@ -83,8 +83,15 @@ class InventoryController extends Controller
     }
 
     // View all cars in the database
-    public function viewAll(){
-        $inventory = Inventory::paginate(12);
+    public function viewList(){
+
+        $inventory = [];
+
+        if (request()->exists('car-id')){
+            $inventory = Inventory::where('id' , request()->query('car-id'))->paginate(12);
+        } else {
+            $inventory = Inventory::paginate(12);
+        }
         return view('inventory.inventory', ['inventory' => $inventory]);
     }
 

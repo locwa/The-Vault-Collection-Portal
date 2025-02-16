@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InventoryController;
 
@@ -12,7 +13,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/inventory', [InventoryController::class, 'viewAll'])->middleware(['auth', 'verified'])->name('inventory');
+Route::get('/inventory', [InventoryController::class, 'viewList'])->middleware(['auth', 'verified'])->name('inventory');
 
 Route::post('/add-car', [InventoryController::class, 'store'])->middleware(['auth', 'verified'])->name('add-car');
 
@@ -27,8 +28,10 @@ Route::post('/edit-car/{id}', [InventoryController::class, 'update'])->middlewar
 Route::get('/edit-car/{id}', [InventoryController::class, 'viewEdit'])->middleware(['auth', 'verified'])->name('edit-car');
 
 // For testing forms
-Route::get('/test', function(){
-    dd(request());
+Route::get('/test', function(Request $request){
+    if(request()->exists('car-id')){
+        dd(request()->query('car-id'));
+    }
 })->name('test');
 
 Route::middleware('auth')->group(function () {
