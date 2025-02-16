@@ -86,10 +86,10 @@ class InventoryController extends Controller
     public function viewList(){
 
         $inventory = [];
-        $carId = request()->query('car-id') ? array_push($inventory, ['id', request()->query('car-id')]) : "";
-        $make = request()->query('make') ? array_push($inventory, ['make', request()->query('make')]) : "";
-        $model = request()->query('model') ? array_push($inventory, ['model', request()->query('model')]) : "";
-        $year = request()->query('year') ? array_push($inventory, ['year', request()->query('year')]) : "";
+        request()->query('car-id') ? array_push($inventory, ['id', request()->query('car-id')]) : "";
+        request()->query('make') ? array_push($inventory, ['make', request()->query('make')]) : "";
+        request()->query('model') ? array_push($inventory, ['model', request()->query('model')]) : "";
+        request()->query('year') ? array_push($inventory, ['year', request()->query('year')]) : "";
 
 //        dd($inventory);
 
