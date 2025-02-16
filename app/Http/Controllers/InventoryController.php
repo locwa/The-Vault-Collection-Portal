@@ -86,9 +86,15 @@ class InventoryController extends Controller
     public function viewList(){
 
         $inventory = [];
+        $carId = request()->query('car-id');
 
         if (request()->exists('car-id')){
-            $inventory = Inventory::where('id' , request()->query('car-id'))->paginate(12);
+            if ($carId == ""){
+                $inventory = Inventory::paginate(12);
+            } else {
+                $inventory = Inventory::where('id' , request()->query('car-id'))->paginate(12);
+            }
+
         } else {
             $inventory = Inventory::paginate(12);
         }
