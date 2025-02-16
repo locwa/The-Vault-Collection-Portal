@@ -8,7 +8,7 @@
     <div class="px-12 flex flex-col items-center mx-14 gap-10">
 
         <div class="w-full min-h-[100vh] my-12 flex gap-10">
-            <div class="h-[90vh] w-96 bg-gray-300 dark:bg-[#1f1f1f] rounded flex flex-col items-center p-5">
+            <div class="h-[60vh] w-96 bg-gray-300 dark:bg-[#1f1f1f] rounded flex flex-col items-center p-5">
                 <div class="w-full">
                     <a href="{{ route('add-car') }}" class="flex justify-center mb-4">
                         <x-primary-button class="px-20 py-3 w-full justify-center">Add Car</x-primary-button>
@@ -17,12 +17,24 @@
                         <x-primary-button class="px-20 py-3 w-full justify-center">Reset Search</x-primary-button>
                     </a>
                     <hr class="dark:border-gray-100 my-3">
-                    <form action="{{ route('inventory') }}" method="get" class="flex justify-between items-center">
+                    <form action="{{ route('inventory') }}" method="get" >
                         <div class="flex flex-col">
-                            <label for="id" class="text-[#0f0f0f] dark:text-gray-100 my-2 font-semibold">Car ID:</label>
-                            <input type="text" name="car-id" id="carID" class="w-24 rounded-[10px]">
+                            <label for="id" class="text-[#0f0f0f] dark:text-gray-100 font-semibold">Car ID:</label>
+                            <input type="text" name="car-id" id="carID" class="w-24 rounded-[10px]" value="{{ request()->query('car-id') }}">
                         </div>
-                        <x-primary-button class="h-full">Search</x-primary-button>
+                        <div class="flex flex-col">
+                            <label for="id" class="text-[#0f0f0f] dark:text-gray-100 font-semibold">Make:</label>
+                            <input type="text" name="make" id="make" class="rounded-[10px]" value="{{ request()->query('make') }}">
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="id" class="text-[#0f0f0f] dark:text-gray-100 font-semibold">Model:</label>
+                            <input type="text" name="model" id="model" class="rounded-[10px]" value="{{ request()->query('model') }}">
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="id" class="text-[#0f0f0f] dark:text-gray-100 font-semibold">Year:</label>
+                            <input type="text" name="year" id="year" class="rounded-[10px]" value="{{ request()->query('year') }}">
+                        </div>
+                        <x-primary-button class="h-full mt-8">Search</x-primary-button>
                     </form>
                     <hr class="dark:border-gray-100 my-3">
                 </div>

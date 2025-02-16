@@ -86,17 +86,18 @@ class InventoryController extends Controller
     public function viewList(){
 
         $inventory = [];
-        $carId = request()->query('car-id');
+        $carId = request()->query('car-id') ? array_push($inventory, ['id', request()->query('car-id')]) : "";
+        $make = request()->query('make') ? array_push($inventory, ['make', request()->query('make')]) : "";
+        $model = request()->query('model') ? array_push($inventory, ['model', request()->query('model')]) : "";
+        $year = request()->query('year') ? array_push($inventory, ['year', request()->query('year')]) : "";
 
-        if (request()->exists('car-id')){
-            if ($carId == ""){
-                $inventory = Inventory::paginate(12);
-            } else {
-                $inventory = Inventory::where('id' , request()->query('car-id'))->paginate(12);
-            }
+//        dd($inventory);
+
+        if (count($inventory) == 0){
+            $inventory = Inventory::paginate(12);
 
         } else {
-            $inventory = Inventory::paginate(12);
+            $inventory = Inventory::where($inventory)->paginate(12);
         }
         return view('inventory.inventory', ['inventory' => $inventory]);
     }
