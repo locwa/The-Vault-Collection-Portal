@@ -55,6 +55,33 @@ class InventoryController extends Controller
 
     }
 
+    // Updates the inventory
+    public function update(Request $request, int $id) : RedirectResponse {
+        $request->validate([
+            'make' => 'required',
+            'model' => 'required',
+            'year' => 'required',
+            'price' => 'required',
+            'mileage' => 'required',
+            'description' => 'required',
+        ]);
+
+        $isPoa = "";
+        $request->exists('isPoa') ? $isPoa = 1 : $isPoa = 0;
+
+        Inventory::where('id' , $id)->update([
+            'make' => $request->make,
+            'model' => $request->model,
+            'year' => $request->year,
+            'price' => $request->price,
+            'mileage' => $request->mileage,
+            'description' => $request->description,
+            'is_poa' => $isPoa,
+        ]);
+
+        return redirect(route('view-car', $id));
+    }
+
     // View all cars in the database
     public function viewAll(){
         $inventory = Inventory::all();
@@ -66,4 +93,11 @@ class InventoryController extends Controller
         $carDetails = Inventory::where('id', $id)->get();
         return view('inventory.view-car', ['carDetails' => $carDetails]);
     }
+
+    // Go to edit car page with the values
+    public function viewEdit(int $id){
+        $carDetails = Inventory::where('id', $id)->get();
+        return view('inventory.edit-car', ['carDetails' => $carDetails]);
+    }
+
 }

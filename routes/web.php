@@ -22,6 +22,10 @@ Route::get('/add-car', function () {
     return view('inventory.add-car');
 })->middleware(['auth', 'verified'])->name('add-car');
 
+Route::post('/edit-car/{id}', [InventoryController::class, 'update'])->middleware(['auth', 'verified'])->name('edit-car');
+
+Route::get('/edit-car/{id}', [InventoryController::class, 'viewEdit'])->middleware(['auth', 'verified'])->name('edit-car');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
