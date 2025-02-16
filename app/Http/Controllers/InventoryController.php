@@ -84,7 +84,7 @@ class InventoryController extends Controller
 
     // View all cars in the database
     public function viewAll(){
-        $inventory = Inventory::all();
+        $inventory = Inventory::paginate(12);
         return view('inventory.inventory', ['inventory' => $inventory]);
     }
 

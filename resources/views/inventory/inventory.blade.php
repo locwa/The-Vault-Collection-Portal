@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="px-12 flex flex-col items-center mx-14">
+    <div class="px-12 flex flex-col items-center mx-14 gap-10">
         <div class="w-full pt-12">
             <div class="bg-white dark:bg-[#1f1f1f] overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100 w-full text-right">
@@ -50,7 +50,11 @@
 
                     </div>
                 @endforeach
+
             </div>
+        </div>
+        <div class="flex">
+            {{ $inventory->links() }}
         </div>
     </div>
 
