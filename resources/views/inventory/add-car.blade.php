@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="mb-6">
-                        <p>Image Upload (Add all photos at once)</p>
+                        <p>Image Upload (Add all photos at once, limit 15)</p>
                         <x-image-input></x-image-input>
                     </div>
 
