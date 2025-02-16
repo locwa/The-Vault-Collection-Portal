@@ -11,10 +11,10 @@
             <div class="h-[90vh] w-96 bg-gray-300 dark:bg-[#1f1f1f] rounded flex flex-col items-center p-5">
                 <div class="w-full">
                     <a href="{{ route('add-car') }}" class="flex justify-center mb-4">
-                        <x-primary-button class="px-20 py-3">Add Car</x-primary-button>
+                        <x-primary-button class="px-20 py-3 w-full justify-center">Add Car</x-primary-button>
                     </a>
                     <a href="{{ route('inventory') }}" class="flex justify-center">
-                        <x-primary-button class="px-20 py-3">Reset Search</x-primary-button>
+                        <x-primary-button class="px-20 py-3 w-full justify-center">Reset Search</x-primary-button>
                     </a>
                     <hr class="dark:border-gray-100 my-3">
                     <form action="{{ route('inventory') }}" method="get" class="flex justify-between items-center">
