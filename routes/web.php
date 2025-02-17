@@ -27,13 +27,6 @@ Route::post('/edit-car/{id}', [InventoryController::class, 'update'])->middlewar
 
 Route::get('/edit-car/{id}', [InventoryController::class, 'viewEdit'])->middleware(['auth', 'verified'])->name('edit-car');
 
-// For testing forms
-Route::get('/test', function(Request $request){
-    if(request()->exists('car-id')){
-        dd(request()->query('car-id'));
-    }
-})->name('test');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
