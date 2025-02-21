@@ -27,6 +27,12 @@ Route::post('/edit-car/{id}', [InventoryController::class, 'update'])->middlewar
 
 Route::get('/edit-car/{id}', [InventoryController::class, 'viewEdit'])->middleware(['auth', 'verified'])->name('edit-car');
 
+Route::get('/sell-car/{id}', [InventoryController::class, 'sellForm'])->middleware(['auth', 'verified'])->name('sell-car');
+
+route::post('/sell-car/{id}', function(){
+    dd(request());
+})->middleware(['auth', 'verified'])->name('submit-sale');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

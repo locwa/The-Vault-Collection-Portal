@@ -78,7 +78,9 @@
                                 <a href="{{ route('view-car', $inv->id) }}">
                                     <x-primary-button>View Car</x-primary-button>
                                 </a>
-                                <x-secondary-button>Sell Car</x-secondary-button>
+                                <a href="{{ route('sell-car', $inv->id) }}">
+                                    <x-secondary-button>Sell Car</x-secondary-button>
+                                </a>
                             </div>
 
                         </div>

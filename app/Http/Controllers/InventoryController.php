@@ -116,4 +116,16 @@ class InventoryController extends Controller
         return view('inventory.edit-car', ['carDetails' => $carDetails]);
     }
 
+    // View the car to be sold and the form to be filled out with the details of the buyer
+    public function sellForm(int $id){
+        $inventoryOutput = Inventory::where('id', $id)->get();
+        $carDetails = sprintf("%s %s %s", $inventoryOutput[0]->year, $inventoryOutput[0]->make, $inventoryOutput[0]->model);
+        $price = $inventoryOutput[0]->price;
+        $photoHeader = $inventoryOutput[0]->photo_header;
+        return view('inventory.sell-car',
+            ['carDetails' => $carDetails],
+            ['invOutput' => $inventoryOutput],
+        );
+    }
+
 }
