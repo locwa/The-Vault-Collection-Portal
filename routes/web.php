@@ -27,11 +27,9 @@ Route::post('/edit-car/{id}', [InventoryController::class, 'update'])->middlewar
 
 Route::get('/edit-car/{id}', [InventoryController::class, 'viewEdit'])->middleware(['auth', 'verified'])->name('edit-car');
 
-Route::get('/sell-car/{id}', [InventoryController::class, 'sellForm'])->middleware(['auth', 'verified'])->name('sell-car');
+Route::post('/submit-sale', [InventoryController::class, 'sellCar'])->middleware(['auth', 'verified'])->name('submit-sale');
 
-route::post('/sell-car/{id}', function(){
-    dd(request());
-})->middleware(['auth', 'verified'])->name('submit-sale');
+Route::get('/sell-car/{id}', [InventoryController::class, 'sellForm'])->middleware(['auth', 'verified'])->name('sell-car');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
