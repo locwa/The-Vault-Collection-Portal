@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SalesController;
 use App\Http\Controllers\InventoryController;
 
 Route::get('/', function () {
@@ -27,9 +28,11 @@ Route::post('/edit-car/{id}', [InventoryController::class, 'update'])->middlewar
 
 Route::get('/edit-car/{id}', [InventoryController::class, 'viewEdit'])->middleware(['auth', 'verified'])->name('edit-car');
 
-Route::post('/submit-sale', [InventoryController::class, 'sellCar'])->middleware(['auth', 'verified'])->name('submit-sale');
+Route::post('/submit-sale', [SalesController::class, 'sellCar'])->middleware(['auth', 'verified'])->name('submit-sale');
 
-Route::get('/sell-car/{id}', [InventoryController::class, 'sellForm'])->middleware(['auth', 'verified'])->name('sell-car');
+Route::get('/sell-car/{id}', [SalesController::class, 'sellForm'])->middleware(['auth', 'verified'])->name('sell-car');
+
+Route::get('/transaction-details/{id}', [SalesController::class, 'transactionDetails'])->middleware(['auth', 'verified'])->name('transaction-details');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
