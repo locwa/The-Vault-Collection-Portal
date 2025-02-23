@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Inventory;
+use App\Models\Sales;
 use Illuminate\Support\Facades\Storage;
 
 class InventoryController extends Controller
@@ -126,6 +127,40 @@ class InventoryController extends Controller
             ['carDetails' => $carDetails],
             ['invOutput' => $inventoryOutput],
         );
+    }
+
+    // Classify the car as sold and record the sale
+    public function sellCar(Request $request) : RedirectResponse {
+
+        $request->validate([
+            'inventoryId' => 'required',
+            'salespersonId' => 'required',
+            'agreedPrice' => 'required',
+            'customerFName' => 'required',
+            'customerLName' => 'required',
+            'customerAddress' => 'required',
+            'customerPhone' => 'required',
+            'customerEmail' => 'required',
+            'paymentOption' => 'required',
+        ]);
+
+        Sales::create([
+            'inventory_id' => $request->inventoryId,
+            'user_id' => $request->salespersonId,
+            'agreed_price' => $request->agreedPrice,
+            'first_name' => $request->customerFName,
+            'last_name' => $request->customerLName,
+            'phone' => $request->customerPhone,
+            'address' => $request->customerAddress,
+            'email' => $request->customeEmail,
+            'payment_type' => $request->paymentOption,
+        ]);
+
+        Inventory::where('id', $request->inventoryId)->update([
+           'status' => 1
+        ]);
+
+        return redirect(route('inventory'));
     }
 
 }
