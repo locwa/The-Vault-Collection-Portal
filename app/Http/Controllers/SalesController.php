@@ -12,13 +12,17 @@ class SalesController extends Controller
     // View the car to be sold and the form to be filled out with the details of the buyer
     public function sellForm(int $id){
         $inventoryOutput = Inventory::where('id', $id)->get();
-        $carDetails = sprintf("%s %s %s", $inventoryOutput[0]->year, $inventoryOutput[0]->make, $inventoryOutput[0]->model);
-        $price = $inventoryOutput[0]->price;
-        $photoHeader = $inventoryOutput[0]->photo_header;
-        return view('inventory.sell-car',
-            ['carDetails' => $carDetails],
-            ['invOutput' => $inventoryOutput],
-        );
+        if ($inventoryOutput[0]->status == 0){
+            $carDetails = sprintf("%s %s %s", $inventoryOutput[0]->year, $inventoryOutput[0]->make, $inventoryOutput[0]->model);
+            $price = $inventoryOutput[0]->price;
+            $photoHeader = $inventoryOutput[0]->photo_header;
+            return view('inventory.sell-car',
+                ['carDetails' => $carDetails],
+                ['invOutput' => $inventoryOutput],
+            );
+        } else {
+            return view('inventory.view.car', $id);
+        }
     }
 
     // Classify the car as sold and record the sale
@@ -44,7 +48,7 @@ class SalesController extends Controller
             'last_name' => $request->customerLName,
             'phone' => $request->customerPhone,
             'address' => $request->customerAddress,
-            'email' => $request->customeEmail,
+            'email' => $request->customerEmail,
             'payment_type' => $request->paymentOption,
         ]);
 
@@ -53,5 +57,16 @@ class SalesController extends Controller
         ]);
 
         return redirect(route('inventory'));
+    }
+
+    // Retrieves transaction details and views the transaction details page
+    public function transactionDetails(int $id){
+        $carDetails = Sales::where('inventory_id', $id)
+            ->join('inventory', 'inventory.id', '=', 'sales.inventory_id')
+            ->join('users', 'users.id' , '=', 'sales.user_id')
+            ->select('users.name AS salesperson_name', 'users.id AS salesperson_id', 'inventory.year', 'inventory.make', 'inventory.model', 'inventory.price', 'inventory.mileage', 'sales.*')
+            ->get();
+        dd($carDetails);
+        return view('inventory.transaction-details');
     }
 }
