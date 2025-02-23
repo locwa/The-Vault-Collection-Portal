@@ -22,33 +22,33 @@
                         <div class="flex flex-col w-full">
                             <h1 class="text-2xl font-bold mb-3">Car Details</h1>
                             <x-input-label class="my-1">Car ID</x-input-label>
-                            <x-text-input class="mb-2" name="id" vals="{{ $invOutput->value('id') }}"></x-text-input>
+                            <x-text-input class="mb-2" name="inventoryId" vals="{{ $invOutput->value('id') }}" readonly></x-text-input>
                             <x-input-label class="my-1">Year</x-input-label>
-                            <x-text-input class="mb-2" name="year" vals="{{ $invOutput->value('year') }}"></x-text-input>
+                            <x-text-input class="mb-2" name="year" vals="{{ $invOutput->value('year') }}" readonly></x-text-input>
                             <x-input-label class="my-1">Make</x-input-label>
-                            <x-text-input class="mb-2" name="make" vals="{{ $invOutput->value('make') }}"></x-text-input>
+                            <x-text-input class="mb-2" name="make" vals="{{ $invOutput->value('make') }}" readonly></x-text-input>
                             <x-input-label class="my-1">Model</x-input-label>
-                            <x-text-input class="mb-2" name="model" vals="{{ $invOutput->value('model') }}"></x-text-input>
+                            <x-text-input class="mb-2" name="model" vals="{{ $invOutput->value('model') }}" readonly></x-text-input>
                             <hr class="my-6">
                             <h1 class="text-2xl font-bold mb-3">Pricing</h1>
                             <x-input-label class="my-1">List Price</x-input-label>
-                            <x-text-input class="mb-2" name="listPrice" vals="{{ $invOutput->value('price') }}"></x-text-input>
+                            <x-text-input class="mb-2" name="listPrice" vals="{{ $invOutput->value('price') }}" readonly></x-text-input>
                             <x-input-label class="my-1">Agreed Price</x-input-label>
                             <x-text-input class="mb-2" name="agreedPrice"></x-text-input>
                             <hr class="my-6">
                             <h1 class="text-2xl font-bold mb-3">Salesperson Details</h1>
                             <x-input-label class="my-1">Name</x-input-label>
-                            <x-text-input class="mb-2" name="salespersonName" vals="{{Auth::user()->name}}" :disabled="true"></x-text-input>
+                            <x-text-input class="mb-2" name="salespersonName" vals="{{Auth::user()->name}}" readonly></x-text-input>
                             <x-input-label class="my-1">Salesperson ID</x-input-label>
-                            <x-text-input class="mb-2" name="salespersonId" vals="{{Auth::user()->id}}"></x-text-input>
+                            <x-text-input class="mb-2" name="salespersonId" vals="{{Auth::user()->id}}" readonly></x-text-input>
                         </div>
 
                         <div class="border-[0.5px] mx-8 my-6"></div>
 
                         <div class="flex flex-col w-full">
                             <h1 class="text-2xl font-bold mb-3">Buyer Details</h1>
-                            <x-input-label class="my-1" name="customerFName">First Name</x-input-label>
-                            <x-text-input class="mb-2" ></x-text-input>
+                            <x-input-label class="my-1">First Name</x-input-label>
+                            <x-text-input class="mb-2" name="customerFName"></x-text-input>
                             <x-input-label class="my-1">Last Name</x-input-label>
                             <x-text-input class="mb-2" name="customerLName"></x-text-input>
                             <x-input-label class="my-1">Contact Number</x-input-label>
