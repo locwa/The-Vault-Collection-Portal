@@ -78,9 +78,15 @@
                                 <a href="{{ route('view-car', $inv->id) }}">
                                     <x-primary-button>View Car</x-primary-button>
                                 </a>
-                                <a href="{{ route('sell-car', $inv->id) }}">
-                                    <x-secondary-button>Sell Car</x-secondary-button>
-                                </a>
+                                @if($inv->status)
+                                    <a href="{{ route('transaction-details', $inv->id) }}">
+                                        <x-secondary-button>Transaction Details</x-secondary-button>
+                                    </a>
+                                @else
+                                    <a href="{{ route('sell-car', $inv->id) }}">
+                                        <x-secondary-button>Sell Car</x-secondary-button>
+                                    </a>
+                                @endif
                             </div>
 
                         </div>
