@@ -30,16 +30,56 @@
                         </x-slot:heading>
                         <x-slot:details>
                             <div class="text-right mr-5">
-                                <h4 class="text-lg"><strong>ID:</strong> {{ $carDetails->value('id') }}</h4>
+                                <h4 class="text-lg"><strong>ID:</strong> {{ $carDetails->value('inventory_id') }}</h4>
                                 <h4 class="text-lg"><strong>Status:</strong> {{ $carDetails->value('status') ? "Sold" : "Available" }}</h4>
-                                <h4 class="text-lg"><strong>Price:</strong> {{ numfmt_format_currency(numfmt_create('en_US', NumberFormatter::CURRENCY), $carDetails->value('price'),"USD") }}</h4>
                             </div>
                         </x-slot:details>
                     </x-image-carousel>
+
+                    <hr>
+
+                    <div class="my-5">
+                        <h1 class="text-4xl font-bold mb-4">Buyer Details:</h1>
+                        <table class="table-auto text-left w-full">
+                            <thead class=" border-[#1f1f1f] dark:border-gray-100 border-b">
+                                <tr>
+                                    <th class="pl-6 pr-8 py-4">Row Name</th>
+                                    <th class="pl-6 pr-8 py-4">Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class=" border-[#1f1f1f] dark:border-gray-100 border-b">
+                                    <td class="px-6 pr-8 py-4">Customer Name</td>
+                                    <td class="px-6 pr-8 py-4">{{ $carDetails->value('first_name') . " " . $carDetails->value('last_name') }}</td>
+                                </tr>
+                                <tr class=" border-[#1f1f1f] dark:border-gray-100 border-b">
+                                    <td class="px-6 pr-8 py-4">Customer Email</td>
+                                    <td class="px-6 pr-8 py-4">{{ $carDetails->value('email') }}</td>
+                                </tr>
+                                <tr class=" border-[#1f1f1f] dark:border-gray-100 border-b">
+                                    <td class="px-6 pr-8 py-4">Customer Address</td>
+                                    <td class="px-6 pr-8 py-4">{{ $carDetails->value('address') }}</td>
+                                </tr>
+                                <tr class=" border-[#1f1f1f] dark:border-gray-100 border-b">
+                                    <td class="px-6 pr-8 py-4">List Price</td>
+                                    <td class="px-6 pr-8 py-4">{{ numfmt_format_currency(numfmt_create('en_US', NumberFormatter::CURRENCY), $carDetails->value('price'),"USD") }}</td>
+                                </tr>
+                                <tr class=" border-[#1f1f1f] dark:border-gray-100 border-b">
+                                    <td class="px-6 pr-8 py-4">Agreed Price</td>
+                                    <td class="px-6 pr-8 py-4">{{ numfmt_format_currency(numfmt_create('en_US', NumberFormatter::CURRENCY), $carDetails->value('agreed_price'),"USD") }}</td>
+                                </tr>
+                                <tr class=" border-[#1f1f1f] dark:border-gray-100 border-b">
+                                    <td class="px-6 pr-8 py-4">Payment Type</td>
+                                    <td class="px-6 pr-8 py-4">{{ $carDetails->value('payment_type') }}</td>
+                                </tr>
+                                <tr class=" border-[#1f1f1f] dark:border-gray-100 border-b">
+                                    <td class="px-6 pr-8 py-4">Sold At</td>
+                                    <td class="px-6 pr-8 py-4">{{ $time . " UTC" }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-
-                <hr>
-
 
             </div>
         </div>
