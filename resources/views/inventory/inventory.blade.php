@@ -8,7 +8,7 @@
     <div class="px-12 flex flex-col items-center mx-14 gap-10">
 
         <div class="w-full min-h-[100vh] my-12 flex gap-10">
-            <div class="h-[60vh] w-96 bg-gray-300 dark:bg-[#1f1f1f] rounded flex flex-col items-center p-5">
+            <div class="h-[70vh] w-96 bg-gray-300 dark:bg-[#1f1f1f] rounded flex flex-col items-center p-5">
                 <div class="w-full">
                     <a href="{{ route('add-car') }}" class="flex justify-center mb-4">
                         <x-primary-button class="px-20 py-3 w-full justify-center">Add Car</x-primary-button>
@@ -21,6 +21,14 @@
                         <div class="flex flex-col">
                             <label for="id" class="text-[#0f0f0f] dark:text-gray-100 font-semibold">Car ID:</label>
                             <input type="text" name="car-id" id="carID" class="w-24 rounded-[10px]" value="{{ request()->query('car-id') }}">
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="id" class="text-[#0f0f0f] dark:text-gray-100 font-semibold">Status:</label>
+                            <select name="status" id="status" class="rounded-[10px]">
+                                <option value="">Select One</option>
+                                <option value="0" {{ request()->query('status') ? "" : "selected" }}>Available</option>
+                                <option value="1" {{ request()->query('status') ? "selected" : "" }}>Sold</option>
+                            </select>
                         </div>
                         <div class="flex flex-col">
                             <label for="id" class="text-[#0f0f0f] dark:text-gray-100 font-semibold">Make:</label>

@@ -91,6 +91,7 @@ class InventoryController extends Controller
         request()->query('make') ? array_push($inventory, ['make', request()->query('make')]) : "";
         request()->query('model') ? array_push($inventory, ['model', request()->query('model')]) : "";
         request()->query('year') ? array_push($inventory, ['year', request()->query('year')]) : "";
+        request()->query('status') ? array_push($inventory, ['status', request()->query('status')]) : "";
 
         $makes = Inventory::select('make')->distinct()->get();
         $models = Inventory::select('model')->distinct()->get();
