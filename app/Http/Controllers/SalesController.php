@@ -64,9 +64,10 @@ class SalesController extends Controller
         $carDetails = Sales::where('inventory_id', $id)
             ->join('inventory', 'inventory.id', '=', 'sales.inventory_id')
             ->join('users', 'users.id' , '=', 'sales.user_id')
-            ->select('users.name AS salesperson_name', 'users.id AS salesperson_id', 'inventory.year', 'inventory.make', 'inventory.model', 'inventory.price', 'inventory.mileage', 'sales.*')
+            ->select('users.name AS salesperson_name', 'users.id AS salesperson_id', 'inventory.year', 'inventory.make', 'inventory.model', 'inventory.price', 'inventory.mileage', 'inventory.photo_header', 'inventory.photo_count', 'inventory.status', 'sales.*')
             ->get();
-        dd($carDetails);
-        return view('inventory.transaction-details');
+
+        $time = date('Y-m-d h:m:s',  strtotime($carDetails[0]->created_at));
+        return view('inventory.transaction-details', ['carDetails' => $carDetails, 'time' => $time]);
     }
 }
