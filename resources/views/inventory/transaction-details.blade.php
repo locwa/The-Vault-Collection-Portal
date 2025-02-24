@@ -58,6 +58,10 @@
                                     <td class="px-6 pr-8 py-4">{{ $carDetails->value('address') }}</td>
                                 </tr>
                                 <tr class=" border-[#1f1f1f] dark:border-gray-100 border-b">
+                                    <td class="px-6 pr-8 py-4">Salesperson</td>
+                                    <td class="px-6 pr-8 py-4">{{ $carDetails->value('salesperson_name') }}</td>
+                                </tr>
+                                <tr class=" border-[#1f1f1f] dark:border-gray-100 border-b">
                                     <td class="px-6 pr-8 py-4">List Price</td>
                                     <td class="px-6 pr-8 py-4">{{ numfmt_format_currency(numfmt_create('en_US', NumberFormatter::CURRENCY), $carDetails->value('price'),"USD") }}</td>
                                 </tr>
