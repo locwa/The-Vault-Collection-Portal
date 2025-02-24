@@ -5,9 +5,6 @@
                 {{ __('View Car') }}
             </h2>
             <div class="flex justify-end gap-x-5">
-                <a href="{{ route('edit-car', $carDetails->value('id')) }}">
-                    <x-primary-button>Edit Car</x-primary-button>
-                </a>
                 <a href="{{ route('inventory') }}">
                     <x-secondary-button>Back to Fleet</x-secondary-button>
                 </a>
