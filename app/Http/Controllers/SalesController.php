@@ -77,6 +77,7 @@ class SalesController extends Controller
             ->join('inventory', 'inventory.id', '=', 'sales.inventory_id')
             ->join('users', 'users.id' , '=', 'sales.user_id')
             ->select('inventory.year', 'inventory.make', 'inventory.model', 'sales.*')
+            ->orderBy('sales.created_at', 'desc')
             ->get();
 
         return view('sales', ['userSales' => $userSales]);
