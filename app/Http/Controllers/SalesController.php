@@ -73,7 +73,14 @@ class SalesController extends Controller
 
     // Retrieves user sales data
     public function salesSummary(int $id){
-        $userSales = Sales::where('user_id', $id)->get();
-        return view('sales', ['userSales' => $userSales]);
+        $userSales = Sales::where('user_id', $id)
+            ->join('inventory', 'inventory.id', '=', 'sales.inventory_id')
+            ->join('users', 'users.id' , '=', 'sales.user_id')
+            ->select('inventory.year', 'inventory.make', 'inventory.model', 'inventory.price', 'sales.*')
+            ->get();
+
+        $time = date('Y-m-d h:m:s',  strtotime($userSales[0]->created_at));
+
+        return view('sales', ['userSales' => $userSales, 'time' => $time]);
     }
 }
