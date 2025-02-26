@@ -28,7 +28,7 @@
                             <td class="py-3">{{ $sales->model }}</td>
                             <td class="py-3">{{ $sales->price }}</td>
                             <td class="py-3">{{ $sales->agreed_price }}</td>
-                            <td class="py-3">{{ $time . " UTC" }}</td>
+                            <td class="py-3">{{ date('Y-m-d h:m:s',  strtotime($sales->created_at)) . " UTC" }}</td>
                             <td>
                                 <a href="{{ route('transaction-details', $sales->inventory_id) }}">
                                     <x-primary-button>View Details</x-primary-button>
@@ -43,7 +43,7 @@
                             <td class="py-3">{{ $sales->model }}</td>
                             <td class="py-3">{{ $sales->price }}</td>
                             <td class="py-3">{{ $sales->agreed_price }}</td>
-                            <td class="py-3">{{ $time . " UTC" }}</td>
+                            <td class="py-3">{{ date('Y-m-d h:m:s',  strtotime($sales->created_at)) . " UTC" }}</td>
                             <td>
                                 <a href="{{ route('transaction-details', $sales->inventory_id) }}">
                                     <x-primary-button>View Details</x-primary-button>

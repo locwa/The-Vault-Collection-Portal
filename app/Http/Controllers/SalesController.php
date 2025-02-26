@@ -79,8 +79,6 @@ class SalesController extends Controller
             ->select('inventory.year', 'inventory.make', 'inventory.model', 'inventory.price', 'sales.*')
             ->get();
 
-        $time = date('Y-m-d h:m:s',  strtotime($userSales[0]->created_at));
-
-        return view('sales', ['userSales' => $userSales, 'time' => $time]);
+        return view('sales', ['userSales' => $userSales]);
     }
 }
