@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="h-[50vh] my-8 mx-48 p-12 bg-white dark:bg-[#1f1f1f] rounded-[10px] text-black dark:text-gray-200">
+    <div class="h-[50vh] my-8 mx-64 p-12 bg-white dark:bg-[#1f1f1f] rounded-[10px] text-black dark:text-gray-200">
         <h2 class="text-2xl font-semibold">Sales List</h2>
         <table class="table-auto my-6 w-full text-left">
             <tr class="border-b">
