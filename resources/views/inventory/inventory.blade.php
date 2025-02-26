@@ -25,7 +25,6 @@
                         <div class="flex flex-col">
                             <label for="id" class="text-[#0f0f0f] dark:text-gray-100 font-semibold">Status:</label>
                             <select name="status" id="status" class="rounded-[10px]">
-                                <option value="" selected disabled>Select One</option>
                                 <option value="0" {{ $_GET ? request()->query('status') ? "" : "selected": "" }}>Available</option>
                                 <option value="1" {{ request()->query('status') ? "selected" : "" }}>Sold</option>
                             </select>
