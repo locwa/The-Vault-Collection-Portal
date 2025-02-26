@@ -9,7 +9,7 @@
         <h2 class="text-2xl font-semibold">Sales List</h2>
         <table class="table-auto my-6 w-full text-left">
             <tr class="border-b">
-                <th class="py-3 pl-3">Car Id</th>
+                <th class="py-3 pl-3">Car ID</th>
                 <th class="py-3">Year</th>
                 <th class="py-3">Make</th>
                 <th class="py-3">Model</th>
@@ -27,7 +27,7 @@
                         <td class="py-3">{{ date('Y-m-d h:m:s',  strtotime($sales->created_at)) . " UTC" }}</td>
                         <td>
                             <a href="{{ route('transaction-details', $sales->inventory_id) }}">
-                                <x-primary-button>View Details</x-primary-button>
+                                <x-primary-button>Details</x-primary-button>
                             </a>
                         </td>
                     </tr>
@@ -41,7 +41,7 @@
                         <td class="py-3">{{ date('Y-m-d h:m:s',  strtotime($sales->created_at)) . " UTC" }}</td>
                         <td>
                             <a href="{{ route('transaction-details', $sales->inventory_id) }}">
-                                <x-primary-button>View Details</x-primary-button>
+                                <x-primary-button>Details</x-primary-button>
                             </a>
                         </td>
                     </tr>
