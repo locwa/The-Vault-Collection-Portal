@@ -34,6 +34,8 @@ Route::get('/sell-car/{id}', [SalesController::class, 'sellForm'])->middleware([
 
 Route::get('/transaction-details/{id}', [SalesController::class, 'transactionDetails'])->middleware(['auth', 'verified'])->name('transaction-details');
 
+Route::get('/sales-summary/{id}', [SalesController::class, 'salesSummary'])->middleware(['auth', 'verified'])->name('sales-summary');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

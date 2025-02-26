@@ -70,4 +70,10 @@ class SalesController extends Controller
         $time = date('Y-m-d h:m:s',  strtotime($carDetails[0]->created_at));
         return view('inventory.transaction-details', ['carDetails' => $carDetails, 'time' => $time]);
     }
+
+    // Retrieves user sales data
+    public function salesSummary(int $id){
+        $userSales = Sales::where('user_id', $id)->get();
+        return view('sales', ['userSales' => $userSales]);
+    }
 }

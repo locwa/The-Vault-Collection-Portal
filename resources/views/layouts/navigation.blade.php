@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('inventory')" :active="request()->routeIs('inventory', 'add-car', 'view-car', 'sell-car')">
                         {{ __('Inventory') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('sales-summary', Auth::user()->id)" :active="request()->routeIs('sales-summary')">
+                        {{ __('Sales') }}
+                    </x-nav-link>
                 </div>
             </div>
 
