@@ -18,41 +18,37 @@
                 <th class="py-3">Sold At</th>
             </tr>
             @foreach($userSales as $index => $sales)
-
-
-                    @if($index == 0 || ($index/2) == 0)
-                        <tr class="border-b  bg-[#9f9f9f] dark:bg-[#3f3f3f]">
-                            <td class="py-3 pl-3">{{ $sales->inventory_id }}</td>
-                            <td class="py-3">{{ $sales->year }}</td>
-                            <td class="py-3">{{ $sales->make }}</td>
-                            <td class="py-3">{{ $sales->model }}</td>
-                            <td class="py-3">{{ $sales->price }}</td>
-                            <td class="py-3">{{ $sales->agreed_price }}</td>
-                            <td class="py-3">{{ date('Y-m-d h:m:s',  strtotime($sales->created_at)) . " UTC" }}</td>
-                            <td>
-                                <a href="{{ route('transaction-details', $sales->inventory_id) }}">
-                                    <x-primary-button>View Details</x-primary-button>
-                                </a>
-                            </td>
-                        </tr>
-                    @else
-                        <tr class="border-b">
-                            <td class="py-3 pl-3">{{ $sales->inventory_id }}</td>
-                            <td class="py-3">{{ $sales->year }}</td>
-                            <td class="py-3">{{ $sales->make }}</td>
-                            <td class="py-3">{{ $sales->model }}</td>
-                            <td class="py-3">{{ $sales->price }}</td>
-                            <td class="py-3">{{ $sales->agreed_price }}</td>
-                            <td class="py-3">{{ date('Y-m-d h:m:s',  strtotime($sales->created_at)) . " UTC" }}</td>
-                            <td>
-                                <a href="{{ route('transaction-details', $sales->inventory_id) }}">
-                                    <x-primary-button>View Details</x-primary-button>
-                                </a>
-                            </td>
-                        </tr>
-                    @endif
-
-
+                @if($index == 0 || ($index/2) == 0)
+                    <tr class="border-b  bg-[#9f9f9f] dark:bg-[#3f3f3f]">
+                        <td class="py-3 pl-3">{{ $sales->inventory_id }}</td>
+                        <td class="py-3">{{ $sales->year }}</td>
+                        <td class="py-3">{{ $sales->make }}</td>
+                        <td class="py-3">{{ $sales->model }}</td>
+                        <td class="py-3">{{ $sales->price }}</td>
+                        <td class="py-3">{{ $sales->agreed_price }}</td>
+                        <td class="py-3">{{ date('Y-m-d h:m:s',  strtotime($sales->created_at)) . " UTC" }}</td>
+                        <td>
+                            <a href="{{ route('transaction-details', $sales->inventory_id) }}">
+                                <x-primary-button>View Details</x-primary-button>
+                            </a>
+                        </td>
+                    </tr>
+                @else
+                    <tr class="border-b">
+                        <td class="py-3 pl-3">{{ $sales->inventory_id }}</td>
+                        <td class="py-3">{{ $sales->year }}</td>
+                        <td class="py-3">{{ $sales->make }}</td>
+                        <td class="py-3">{{ $sales->model }}</td>
+                        <td class="py-3">{{ $sales->price }}</td>
+                        <td class="py-3">{{ $sales->agreed_price }}</td>
+                        <td class="py-3">{{ date('Y-m-d h:m:s',  strtotime($sales->created_at)) . " UTC" }}</td>
+                        <td>
+                            <a href="{{ route('transaction-details', $sales->inventory_id) }}">
+                                <x-primary-button>View Details</x-primary-button>
+                            </a>
+                        </td>
+                    </tr>
+                @endif
             @endforeach
         </table>
     </div>
