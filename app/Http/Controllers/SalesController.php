@@ -76,7 +76,7 @@ class SalesController extends Controller
         $userSales = Sales::where('user_id', $id)
             ->join('inventory', 'inventory.id', '=', 'sales.inventory_id')
             ->join('users', 'users.id' , '=', 'sales.user_id')
-            ->select('inventory.year', 'inventory.make', 'inventory.model', 'inventory.price', 'sales.*')
+            ->select('inventory.year', 'inventory.make', 'inventory.model', 'sales.*')
             ->get();
 
         return view('sales', ['userSales' => $userSales]);

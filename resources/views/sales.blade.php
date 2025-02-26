@@ -13,7 +13,6 @@
                 <th class="py-3">Year</th>
                 <th class="py-3">Make</th>
                 <th class="py-3">Model</th>
-                <th class="py-3">List Price</th>
                 <th class="py-3">Agreed Price</th>
                 <th class="py-3">Sold At</th>
             </tr>
@@ -24,7 +23,6 @@
                         <td class="py-3">{{ $sales->year }}</td>
                         <td class="py-3">{{ $sales->make }}</td>
                         <td class="py-3">{{ $sales->model }}</td>
-                        <td class="py-3">{{ $sales->price }}</td>
                         <td class="py-3">{{ $sales->agreed_price }}</td>
                         <td class="py-3">{{ date('Y-m-d h:m:s',  strtotime($sales->created_at)) . " UTC" }}</td>
                         <td>
@@ -39,7 +37,6 @@
                         <td class="py-3">{{ $sales->year }}</td>
                         <td class="py-3">{{ $sales->make }}</td>
                         <td class="py-3">{{ $sales->model }}</td>
-                        <td class="py-3">{{ $sales->price }}</td>
                         <td class="py-3">{{ $sales->agreed_price }}</td>
                         <td class="py-3">{{ date('Y-m-d h:m:s',  strtotime($sales->created_at)) . " UTC" }}</td>
                         <td>
