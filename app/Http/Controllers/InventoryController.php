@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Inventory;
-use App\Models\Sales;
 use Illuminate\Support\Facades\Storage;
 
 class InventoryController extends Controller
